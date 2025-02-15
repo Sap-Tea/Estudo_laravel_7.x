@@ -31,3 +31,5 @@ Route::get('/login', 'Authcontroller@showLoginForm')->name('login');
 Route::get('/index', function () {
   return view('index');
 })->name('index');
+
+.
