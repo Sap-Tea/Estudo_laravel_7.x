@@ -34,7 +34,7 @@
             const timer = setTimeout(()=>{
                 notificacao.className = "notificacao"
                 if (tipo === "sucesso"){
-                    window.location.href = "index.php";
+                    window.location.href = "/index";
                 }
             }, 1500)
 

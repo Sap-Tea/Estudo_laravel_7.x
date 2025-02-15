@@ -25,3 +25,7 @@ Route::get('/Sobre-nos','SobreNosController@sobreNos');
 Route::get('/contato', 'ContatoController@contato');
 
 Route::get('/login', 'Authcontroller@showLoginForm')->name('login');
+
+Route::get('/index', function () {
+  return view('index');
+})->name('index');
