@@ -3,6 +3,8 @@
 ...
 */
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Type\Integer;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +23,32 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/','PrincipalController@Principal');
 
-Route::get('/Sobre-nos','SobreNosController@sobreNos');
-    
+Route::get('/Sobre-nos/{assunto}','SobreNosController@sobreNos');
+   
 
 Route::get('/contato', 'ContatoController@contato');
 
-Route::get('/login', 'Authcontroller@showLoginForm')->name('login');
-
-Route::get('/index', function () {
-  return view('index');
-})->name('index');
+Route::get('/contato/{nome}/{contato_id}',function(
+    string $nome = 'desconhecido',
+    int $contato_id= 1 //1 - informação
+    
+    )
+    {
+        return "o Nome do aluno é .$nome.e o seu email  é .$contato_id";
+}
+)->where('contato_id','[1-9]+')->where('nome','[A-Za-z]+1');
 
  
+
+ 
+ 
+
+
+
+  
+
+
+ 
+
+
+
