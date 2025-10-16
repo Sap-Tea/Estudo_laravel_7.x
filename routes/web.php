@@ -37,8 +37,10 @@ Route::get('/contato/{nome}/{contato_id}',function(
         return "o Nome do aluno é .$nome.e o seu email  é .$contato_id";
 }
 )->where('contato_id','[1-9]+')->where('nome','[A-Za-z]+1');
+/*
+comentarios em php 
 
- 
+*/
 
  
  
