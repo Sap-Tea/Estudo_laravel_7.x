@@ -46,6 +46,10 @@ Route::get('mensagem',function(){
 
 //Route::redirect('/excluindo','mensagem');
 
+Route::fallback(function(){
+    echo 'Rota inexistente';
+});
+
  
  
 
