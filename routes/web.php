@@ -21,26 +21,30 @@ use Ramsey\Uuid\Type\Integer;
     return "inicio";
 }) 
 */
-Route::get('/','PrincipalController@Principal');
+Route::get('/','PrincipalController@Principal')->name('site.index');
+Route::get('/Sobre-nos','SobreNosController@sobreNos')->name('site.sobre-nos');
+Route::get('/Contato', 'ContatoController@contato')->name('site.contato');
 
-Route::get('/Sobre-nos/{assunto}','SobreNosController@sobreNos');
-   
+Route::prefix('/app')->group(function(){
+   Route::get('/Login',function(){  return 'Login';})->name('app.login');
+    Route::get('/clientes',function(){  return 'Clientes';})->name('app.clientes');
+    Route::get('/fornecedores',function(){return 'Fornecedores';})->name('app.fonecedors');
+    Route::get('/produtos',function(){  return 'Produtos';})->name('app.produtos');
+});
 
-Route::get('/contato', 'ContatoController@contato');
 
-Route::get('/contato/{nome}/{contato_id}',function(
-    string $nome = 'desconhecido',
-    int $contato_id= 1 //1 - informação
-    
-    )
-    {
-        return "o Nome do aluno é .$nome.e o seu email  é .$contato_id";
-}
-)->where('contato_id','[1-9]+')->where('nome','[A-Za-z]+1');
-/*
-comentarios em php 
+Route::get('/excluindo',function(){
+  return redirect()->route('site.mensagem');
 
-*/
+})->name('site.excluir');
+  
+
+Route::get('mensagem',function(){
+    echo "Registro excluido com sucesso";
+
+})->name('site.mensagem');
+
+//Route::redirect('/excluindo','mensagem');
 
  
  
