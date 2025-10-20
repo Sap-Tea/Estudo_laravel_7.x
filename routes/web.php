@@ -2,6 +2,9 @@
 /*
 ...
 */
+
+use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\TesteController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
@@ -28,7 +31,7 @@ Route::get('/Contato', 'ContatoController@contato')->name('site.contato');
 Route::prefix('/app')->group(function(){
    Route::get('/Login',function(){  return 'Login';})->name('app.login');
     Route::get('/clientes',function(){  return 'Clientes';})->name('app.clientes');
-    Route::get('/fornecedores',function(){return 'Fornecedores';})->name('app.fonecedors');
+    Route::get('/fornecedores','FornecedorController@index')->name('app.fonecedores');
     Route::get('/produtos',function(){  return 'Produtos';})->name('app.produtos');
 });
 
@@ -45,6 +48,9 @@ Route::get('mensagem',function(){
 })->name('site.mensagem');
 
 //Route::redirect('/excluindo','mensagem');
+
+Route::get('/teste/{x}/{y}','TesteController@teste')->name('teste');
+
 
 Route::fallback(function(){
     echo 'Rota inexistente';
