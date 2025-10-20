@@ -6,8 +6,9 @@
 <br/>
 
 
-
-@dd($fornecedores)
+@php
+//@dd($fornecedores)
+@endphp
 
 @if(count($fornecedores) > 0 && count($fornecedores) < 10)
     <h3>Existem alguns fornecedores cadastrados</h3>
