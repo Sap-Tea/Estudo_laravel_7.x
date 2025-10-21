@@ -51,7 +51,6 @@ Route::get('mensagem',function(){
 
 Route::get('/teste/{x}/{y}','TesteController@teste')->name('teste');
 
-
 Route::fallback(function(){
     echo 'Rota inexistente';
 });
