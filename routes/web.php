@@ -25,7 +25,7 @@ use Ramsey\Uuid\Type\Integer;
 }) 
 */
 
-/*testando commit*/ */
+/*testando commit*/ 
 Route::get('/','PrincipalController@Principal')->name('site.index');
 Route::get('/Sobre-nos','SobreNosController@sobreNos')->name('site.sobre-nos');
 Route::get('/Contato', 'ContatoController@contato')->name('site.contato');
